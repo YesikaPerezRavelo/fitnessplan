@@ -94,3 +94,23 @@ if (suma >= 1 && suma <= 8) {
 } else {
   alert("Opción invalidad");
 }
+
+let email = prompt(`Ingresa un email`);
+let newPassword = prompt(`Ingresa un password`);
+
+if (email != "" && newPassword != "") {
+  let confirmation = "1) " + email + " " + "2) " + newPassword + " ";
+
+  console.log(confirmation);
+} else {
+  console.log("Opción invalidad falta cargar datos");
+}
+
+let repeatPassword = prompt(`Confirma el password`);
+if ((newPassword |= repeatPassword)) {
+  console.log("Password correcto");
+  alert("Password correcto");
+} else {
+  console.warn("Password incorrecto");
+  alert("Password incorrecto");
+}

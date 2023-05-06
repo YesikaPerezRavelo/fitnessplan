@@ -95,6 +95,18 @@ if (suma >= 1 && suma <= 8) {
   alert("Opción invalidad");
 }
 
+function datosIMC() {
+  let peso = prompt(`Ingresa tu peso`);
+  let altura = prompt(`Ingresa tu estatura en metros EJEMPLO: 1.63`);
+
+  let alCuadrado = altura * altura;
+
+  let IMC = peso / alCuadrado;
+  console.log(`El IMC del usuario es: ${IMC}`);
+}
+
+datosIMC();
+
 let email = prompt(`Ingresa un email`);
 let newPassword = prompt(`Ingresa un password`);
 

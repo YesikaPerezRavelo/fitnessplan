@@ -98,43 +98,33 @@ if (suma >= 1 && suma <= 8) {
 function datosIMC() {
   let peso = prompt(`Ingresa tu peso`);
   let altura = prompt(`Ingresa tu estatura en metros EJEMPLO: 1.63`);
-
   let alCuadrado = altura * altura;
 
   let IMC = peso / alCuadrado;
-  console.log(`El IMC del usuario es: ${IMC}`);
 
-  let datosIMC =
-    "Calularemos tu indice de Masa Corporal, escribe OK para continuar";
-  if (datosIMC < 18.5) {
-    console.log("estas por debajo de peso apropiado");
-    alert("estas por debajo de peso apropiado");
-  }
+  alert("Calcularemos tu índice de Masa Corporal, escribe OK para continuar");
 
-  if (24.9 <= datosIMC >= 18.5) {
-    console.log("Sos saludable");
+  if (IMC < 18.5) {
+    alert("Estás por debajo del peso apropiado");
+  } else if (IMC >= 18.5 && IMC <= 24.9) {
     alert("Sos saludable");
-  }
-  if (29.9 <= datosIMC >= 25) {
-    console.log("Tenes sobre peso");
-    alert("Tenes sobrepeso");
-  }
-  if (34.9 <= datosIMC >= 30) {
-    console.log("Tenes obesidad tipo 1");
-    alert("Tenes obesidad tipo 1");
-  }
-  if (39.9 <= datosIMC >= 35) {
-    console.log("Tenes obesidad tipo 2");
-    alert("Tenes obesidad tipo 2");
-  }
-  if (datosIMC > 40);
-  {
-    console.log("Tenes obsidad tipo 3");
-    alert("Tenes obsidad tipo 3");
+  } else if (IMC >= 25 && IMC <= 29.9) {
+    alert("Tenés sobrepeso");
+  } else if (IMC >= 30 && IMC <= 34.9) {
+    alert("Tenés obesidad tipo 1");
+  } else if (IMC >= 35 && IMC <= 39.9) {
+    alert("Tenés obesidad tipo 2");
+  } else if (IMC > 40) {
+    alert("Tenés obesidad tipo 3");
+  } else {
+    alert("Puede que no ingresaste un dato, o ingresaste un dato inválido");
   }
 }
 
-datosIMC();
+for (let i = 0; i < 5; i++) {
+  // se cambia el 5 por la cantidas de veces que queremos que se repita la funcion
+  datosIMC();
+}
 
 let email = prompt(`Ingresa un email`);
 let newPassword = prompt(`Ingresa un password`);

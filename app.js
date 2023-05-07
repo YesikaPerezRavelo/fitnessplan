@@ -120,11 +120,7 @@ function datosIMC() {
     alert("Puede que no ingresaste un dato, o ingresaste un dato inválido");
   }
 }
-
-for (let i = 0; i < 5; i++) {
-  // se cambia el 5 por la cantidas de veces que queremos que se repita la funcion
-  datosIMC();
-}
+datosIMC();
 
 let email = prompt(`Ingresa un email`);
 let newPassword = prompt(`Ingresa un password`);

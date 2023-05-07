@@ -107,34 +107,6 @@ function datosIMC() {
 
 datosIMC();
 
-let datosIMC =
-  "Calularemos tu indice de Masa Corporal, escribe OK para continuar";
-if (datosIMC < 18.5) {
-  console.log("estas por debajo de peso apropiado");
-  alert("estas por debajo de peso apropiado");
-}
-
-if (datosIMC >= 18.5 && 24.9) {
-  console.log("Sos saludable");
-  alert("Sos saludable");
-}
-if (datosIMC >= 25 && 29.9) {
-  console.log("Tenes un poco de sobrepeso");
-  alert("Tenes un poco de sobrepeso");
-}
-if (datosIMC >= 30 && 34.9) {
-  console.log("Tenes obesidad tipo 1");
-  alert("Tenes obesidad tipo 1");
-}
-if (datosIMC >= 35 && 39.9) {
-  console.log("Tenes obesidad tipo 2");
-  alert("Tenes obesidad tipo 2");
-} else datosIMC > 40;
-{
-  console.log("Tenes obsidad tipo 3");
-  alert("Tenes obsidad tipo 3");
-}
-
 let email = prompt(`Ingresa un email`);
 let newPassword = prompt(`Ingresa un password`);
 

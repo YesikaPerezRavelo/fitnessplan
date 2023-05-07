@@ -103,6 +103,35 @@ function datosIMC() {
 
   let IMC = peso / alCuadrado;
   console.log(`El IMC del usuario es: ${IMC}`);
+
+  let datosIMC =
+    "Calularemos tu indice de Masa Corporal, escribe OK para continuar";
+  if (datosIMC < 18.5) {
+    console.log("estas por debajo de peso apropiado");
+    alert("estas por debajo de peso apropiado");
+  }
+
+  if (24.9 <= datosIMC >= 18.5) {
+    console.log("Sos saludable");
+    alert("Sos saludable");
+  }
+  if (29.9 <= datosIMC >= 25) {
+    console.log("Tenes sobre peso");
+    alert("Tenes sobrepeso");
+  }
+  if (34.9 <= datosIMC >= 30) {
+    console.log("Tenes obesidad tipo 1");
+    alert("Tenes obesidad tipo 1");
+  }
+  if (39.9 <= datosIMC >= 35) {
+    console.log("Tenes obesidad tipo 2");
+    alert("Tenes obesidad tipo 2");
+  }
+  if (datosIMC > 40);
+  {
+    console.log("Tenes obsidad tipo 3");
+    alert("Tenes obsidad tipo 3");
+  }
 }
 
 datosIMC();

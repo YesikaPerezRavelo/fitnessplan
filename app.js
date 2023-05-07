@@ -28,40 +28,38 @@ let dias = prompt(`
 
 switch (dias) {
   case "1":
-    console.log("Lunes");
+    alert("Lunes");
     break;
 
   case "2":
-    console.log("Martes");
+    alert("Martes");
     break;
 
   case "3":
-    console.log("Miercoles");
+    alert("Miercoles");
     break;
 
   case "4":
-    console.log("Jueves");
+    alert("Jueves");
     break;
 
   case "5":
-    console.log("Viernes");
+    alert("Viernes");
     break;
 
   case "6":
-    console.log("Sabado");
+    alert("Sabado");
     break;
 
   case "7":
-    console.log("Domingo");
+    alert("Domingo");
     break;
 
   default:
-    console.log("Opción invalidad");
+    alert("Opción invalidad");
 
     break;
 }
-
-alert(dias);
 
 let dia = prompt(`Ingresa día de entrenamiento`);
 let dia2 = prompt(`Ingresa otro día de entrenamiento`);
@@ -130,14 +128,12 @@ if (email != "" && newPassword != "") {
 
   console.log(confirmation);
 } else {
-  console.log("Opción invalidad falta cargar datos");
+  alert("Opción invalidad falta cargar datos");
 }
 
 let repeatPassword = prompt(`Confirma el password`);
 if ((newPassword |= repeatPassword)) {
-  console.log("Password correcto");
   alert("Password correcto");
 } else {
-  console.warn("Password incorrecto");
   alert("Password incorrecto");
 }

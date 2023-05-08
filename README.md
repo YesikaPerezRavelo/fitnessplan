@@ -1,10 +1,13 @@
 # Fitness Plan
+
 ## Javascrip
+
 ### Portfolio
+
 #### Website to sell fitness plan
 
-
 ---
+
 **Ultimate health and fitness goals**
 
 _Roof draft_
@@ -18,15 +21,17 @@ function dataIMC() {
   let square = high * ahigh;
 
   let IMC = peso / square;
-  }
+}
 ```
 
 1. Registe
 2. Log In
 3. Select our fitness plan
 
-| Name | Last Name | Email |
-| --- | --- | --- |
-|Yesika | Perez | yesikapr@gmail.com
+| Name   | Last Name | Email              |
+| ------ | --------- | ------------------ |
+| Yesika | Perez     | yesikapr@gmail.com |
 
-[Enlace a LinkedIn](https://www.linkedin.com/in/yesikaperezravelo/)
+[LinkedIn](https://www.linkedin.com/in/yesikaperezravelo/)
+
+![imagenPerfil](./yes.webp)

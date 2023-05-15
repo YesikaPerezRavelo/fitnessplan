@@ -1,5 +1,12 @@
-let nombre = prompt("Ingresa tu nombre");
-let apellido = prompt("Ingresa tu apellido");
+function crearCliente(nombre, apellido) {
+  this.nombre = nombre = prompt("Ingresa tu nombre");
+  this.apellido = apellido = prompt("Ingresa tu apellido");
+  this.saludarCliente = function () {
+    return `Hola ${this.nombre}, ${this.apellido}`;
+  };
+}
+const cliente1 = new crearCliente();
+alert(cliente1.saludarCliente());
 
 let edad = prompt("Ingresa tu edad");
 if (edad >= 18) {
@@ -163,7 +170,4 @@ const libro4 = new producto(
   15000
 );
 
-alert(libro1);
-alert(libro2);
-alert(libro3);
-alert(libro4);
+console.log(libro1);

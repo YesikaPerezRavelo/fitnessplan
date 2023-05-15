@@ -2,7 +2,7 @@ function crearCliente(nombre, apellido) {
   this.nombre = nombre = prompt("Ingresa tu nombre");
   this.apellido = apellido = prompt("Ingresa tu apellido");
   this.saludarCliente = function () {
-    return `Hola ${this.nombre}, ${this.apellido}`;
+    return `¡Hola ${this.nombre}, ${this.apellido}!`;
   };
 }
 const cliente1 = new crearCliente();
@@ -170,4 +170,13 @@ const libro4 = new producto(
   15000
 );
 
-console.log(libro1);
+alert(libro1.libro + " " + libro1.precio);
+alert(libro2.libro + " " + libro2.precio);
+alert(libro3.libro + " " + libro3.precio);
+alert(libro4.libro + " " + libro4.precio);
+
+const produtos = [prompt("Ingresa que días queres entrenar")];
+
+for (let i = 0; i < 7; i++) {
+  console.log();
+}

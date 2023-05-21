@@ -103,7 +103,7 @@ function cargarProducto() {
 
   if (dias >= 1 && dias <= 7) {
     alert(diasSemana[dias - 1]);
-    alert("Valor por hora: " + precios);
+    alert("Valor por hora: " + precios[0].precios);
     const nuevoProducto = new LetsWorkout(diasSemana[dias - 1], precios);
     arrayCarrito.push(nuevoProducto);
     alert("Has añadido un día de entrenamiento a tu carrito");
@@ -130,19 +130,10 @@ function descuentoExclusivo() {
   } else if (suma >= 12 && suma <= 26) {
     alert("Tendrás un 15% de descuento sobre el valor total de tus clases");
   } else {
-    alert("Opción inválida");
+    alert("Sigue comprando");
   }
 
-  let multiplicacion = suma * precios;
-  if (multiplicacion >= 3200 && multiplicacion <= 35200) {
-    alert("El descuento aplica para mas cantidad de clases");
-  } else if (multiplicacion >= 38400 && multiplicacion <= 83200) {
-    alert("Tenes un 15% sobre el valor mensual de tus clases");
-  } else {
-    alert("opción inválidad");
-  }
-
-  const nuevoDescuento = { descuento: multiplicacion };
+  const nuevoDescuento = { descuento: "15%" };
   arrayCarrito.push(nuevoDescuento);
   alert("Descuento: " + nuevoDescuento.descuento);
 }
@@ -243,7 +234,10 @@ function finalizarCompra() {
       return acc;
     }
   }, 0);
-  alert(`Gracias por tu compra. El total a pagar es de ${total}`);
+
+  const totalConDescuento = total * 0.85; // Restar un 15% al total
+
+  alert(`Gracias por tu compra. El total a pagar es de ${totalConDescuento}`);
 }
 
 let arrayCarrito = [];

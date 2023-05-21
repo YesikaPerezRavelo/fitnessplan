@@ -9,17 +9,18 @@ function crearCliente(nombre, apellido) {
 const cliente1 = new crearCliente();
 alert(cliente1.saludarCliente());
 
-let edad = prompt("Ingresa tu edad");
+let edad;
+do {
+  edad = prompt("Ingresa tu edad");
+} while (edad <= 18);
+
 if (edad >= 18) {
   alert("Eres mayor de edad, puedes continuar");
 } else {
   alert("Para continuar necesitas un adulto mayor");
-  edad = prompt("Ingrese la edad del responsable");
-  while (edad <= 18) {
-    edad = prompt(
-      "La persona responsable debe ser mayor de edad. Ingresa la edad del responsable:"
-    );
-  }
+  do {
+    edad = prompt("Ingrese la edad del responsable");
+  } while (edad <= 18);
 }
 
 function datosIMC() {
@@ -32,15 +33,15 @@ function datosIMC() {
 
   if (IMC < 18.5) {
     alert("Estás por debajo del peso apropiado");
-  } else if (IMC >= 18.5 && IMC <= 24.9) {
+  } else if (IMC <= 24.9) {
     alert("Eres saludable");
-  } else if (IMC >= 25 && IMC <= 29.9) {
+  } else if (IMC <= 29.9) {
     alert("Tienes sobrepeso");
-  } else if (IMC >= 30 && IMC <= 34.9) {
+  } else if (IMC <= 34.9) {
     alert("Tienes obesidad tipo 1");
-  } else if (IMC >= 35 && IMC <= 39.9) {
+  } else if (IMC <= 39.9) {
     alert("Tienes obesidad tipo 2");
-  } else if (IMC > 40) {
+  } else if (IMC >= 40) {
     alert("Tienes obesidad tipo 3");
   } else {
     alert("Puede que no ingresaste un dato o ingresaste un dato inválido");
@@ -54,7 +55,6 @@ let newPassword = prompt("Ingresa una contraseña");
 
 if (email !== "" && newPassword !== "") {
   let confirmation = "1) " + email + " " + "2) " + newPassword + " ";
-
   console.log(confirmation);
 } else {
   alert("Opción inválida, falta cargar datos");
@@ -91,43 +91,25 @@ function cargarProducto() {
 6:Sabado
 7:Domingo`);
 
-  switch (dias) {
-    case "1":
-      alert("Lunes");
-      break;
+  const diasSemana = [
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo",
+  ];
 
-    case "2":
-      alert("Martes");
-      break;
-
-    case "3":
-      alert("Miércoles");
-      break;
-
-    case "4":
-      alert("Jueves");
-      break;
-
-    case "5":
-      alert("Viernes");
-      break;
-
-    case "6":
-      alert("Sábado");
-      break;
-
-    case "7":
-      alert("Domingo");
-      break;
-
-    default:
-      alert("Opción inválida");
-      break;
+  if (dias >= 1 && dias <= 7) {
+    alert(diasSemana[dias - 1]);
+    alert("Valor por hora: " + precios);
+    const nuevoProducto = new LetsWorkout(diasSemana[dias - 1], precios);
+    arrayCarrito.push(nuevoProducto);
+    alert("Has añadido un día de entrenamiento a tu carrito");
+  } else {
+    alert("Opción inválida");
   }
-  alert("Valor por hora: " + precios);
-  const nuevoProducto = new LetsWorkout(dias, precios);
-  arrayCarrito.push(nuevoProducto);
-  alert("Has añadido un día de entrenamiento a tu carrito");
 }
 
 function descuentoExclusivo() {
@@ -150,9 +132,10 @@ function descuentoExclusivo() {
   } else {
     alert("Opción inválida");
   }
-  const nuevoDescuento = new descuentoExclusivo();
+
+  const nuevoDescuento = { descuento: suma };
   arrayCarrito.push(nuevoDescuento);
-  alert("Descuento: " + descuentoExclusivo);
+  alert("Descuento: " + nuevoDescuento.descuento);
 }
 
 let reservaHorariaCount = 0;
@@ -165,21 +148,12 @@ function reservaHoraria() {
       this.propietario = disponibility;
     }
     estaDisponible(hora) {
-      if ((hora >= 8 && hora <= 12) || (hora >= 15 && hora <= 19)) {
-        return true;
-      }
-      return false;
+      return (hora >= 8 && hora <= 12) || (hora >= 15 && hora <= 19);
     }
   }
-  const agenda1 = new Agenda(
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-    "Domingo"
-  );
+
+  const agenda1 = new Agenda();
+
   for (let index = 1; index <= 3; index++) {
     let entrada = parseInt(
       prompt(
@@ -197,15 +171,23 @@ function reservaHoraria() {
   if (reservaHorariaCount >= 3) {
     alert("Ya has realizado el máximo de reservas horarias permitidas");
   } else {
-    const nuevoHorario = new reservaHoraria();
+    const nuevoHorario = { reserva: reservaHorariaCount };
     arrayCarrito.push(nuevoHorario);
-    alert("Descuento: " + reservaHoraria);
+    alert("Reserva: " + nuevoHorario.reserva);
   }
 }
 
 function verCarrito() {
   arrayCarrito.forEach((producto) => {
-    alert(`Elegiste ${producto.dias} por un precio de ${producto.precios}`);
+    if (producto instanceof LetsWorkout) {
+      alert(
+        `Elegiste ${producto.dias} por un precio de ${producto.precios[0].precios}`
+      );
+    } else if (producto.hasOwnProperty("descuento")) {
+      alert(`Descuento: ${producto.descuento}`);
+    } else if (producto.hasOwnProperty("reserva")) {
+      alert(`Reserva: ${producto.reserva}`);
+    }
   });
 }
 
@@ -213,7 +195,9 @@ function mostrarOferta() {
   alert("Te presentamos nuestros productos");
 
   function Producto(nombre, precio) {
-    (this.libro = nombre), (this.precio = precio), (this.disponible = true);
+    this.libro = nombre;
+    this.precio = precio;
+    this.disponible = true;
   }
 
   const libro1 = new Producto("Abdomen de hierro", 8000);
@@ -243,7 +227,13 @@ function mostrarOferta() {
 }
 
 function finalizarCompra() {
-  const total = arrayCarrito.reduce((acc, el) => acc + el.precios, 0);
+  const total = arrayCarrito.reduce((acc, el) => {
+    if (el instanceof LetsWorkout) {
+      return acc + parseInt(el.precios[0].precios);
+    } else {
+      return acc;
+    }
+  }, 0);
   alert(`Gracias por tu compra. El total a pagar es de ${total}`);
 }
 
@@ -255,7 +245,7 @@ let opcion = prompt(
 
 while (opcion !== "7") {
   if (opcion === "1") {
-    cargarProducto(arrayCarrito);
+    cargarProducto();
   }
   if (opcion === "2") {
     mostrarOferta();

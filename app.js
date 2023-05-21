@@ -133,7 +133,16 @@ function descuentoExclusivo() {
     alert("Opción inválida");
   }
 
-  const nuevoDescuento = { descuento: suma };
+  let multiplicacion = suma * precios;
+  if (multiplicacion >= 3200 && multiplicacion <= 35200) {
+    alert("El descuento aplica para mas cantidad de clases");
+  } else if (multiplicacion >= 38400 && multiplicacion <= 83200) {
+    alert("Tenes un 15% sobre el valor mensual de tus clases");
+  } else {
+    alert("opción inválidad");
+  }
+
+  const nuevoDescuento = { descuento: multiplicacion };
   arrayCarrito.push(nuevoDescuento);
   alert("Descuento: " + nuevoDescuento.descuento);
 }

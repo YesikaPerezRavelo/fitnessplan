@@ -21,83 +21,6 @@ if (edad >= 18) {
   }
 }
 
-alert("¿Que día se te complica entrenar? Apreta ENTER para seguir");
-let dias = prompt(`
-1:Lunes
-2:Martes
-3:Miercoles
-4:Jueves
-5:Viernes
-6:Sabado
-7:Domingo`);
-
-switch (dias) {
-  case "1":
-    alert("Lunes");
-    break;
-
-  case "2":
-    alert("Martes");
-    break;
-
-  case "3":
-    alert("Miercoles");
-    break;
-
-  case "4":
-    alert("Jueves");
-    break;
-
-  case "5":
-    alert("Viernes");
-    break;
-
-  case "6":
-    alert("Sabado");
-    break;
-
-  case "7":
-    alert("Domingo");
-    break;
-
-  default:
-    alert("Opción invalidad");
-
-    break;
-}
-
-let dia = prompt(`Ingresa día de entrenamiento`);
-let dia2 = prompt(`Ingresa otro día de entrenamiento`);
-let dia3 = prompt(`Agrega otro día de entrenamiento o sino coloca un "0"`);
-
-if (dia != "" && dia2 != "" && dia3 != "") {
-  let entrenar = "1) " + dia + " " + "2) " + dia2 + " " + "3) " + dia3;
-
-  console.log(entrenar);
-} else {
-  console.log("Opción invalidad falta cargar los días de entrenamiento");
-}
-
-alert(
-  "Ingresa la cantidad de días que deseas entrenar y participa por un descuento exclusivo"
-);
-
-let primerProducto = Number(
-  prompt("¿Cuantas veces por MES te gustaria entrenar de manera presencial?")
-);
-let segundoProducto = Number(
-  prompt("¿Cuantas clases por MES en linea te gustaria tomar?")
-);
-let suma = primerProducto + segundoProducto;
-
-if (suma >= 1 && suma <= 11) {
-  alert("Descuento aplica para más cantidad de clases");
-} else if (suma >= 12 && suma <= 26) {
-  alert("Tendras un 15% de descuento sobre el valor total de tus clases");
-} else {
-  alert("Opción invalidad");
-}
-
 function datosIMC() {
   let peso = prompt(`Ingresa tu peso`);
   let altura = prompt(`Ingresa tu estatura en metros EJEMPLO: 1.63`);
@@ -151,32 +74,201 @@ function registro() {
 
 registro();
 
-alert("Te presentamos nuestro produtos");
-
-const { libro, precio, disponible } = producto;
-
-function producto(nombre, precio) {
-  (this.libro = nombre), (this.precio = precio), (this.disponible = true);
+class LetsWorkout {
+  constructor(dias, precios) {
+    this.dias = dias;
+    this.precios = precios;
+  }
 }
 
-const libro1 = new producto("Abdomen de hierro", 8000);
-const libro2 = new producto("Tren superior para la postura", 9000);
-const libro3 = new producto(
-  "Mas de 100 entrenamientos para hacer desde casa",
-  10000
-);
-const libro4 = new producto(
-  "Los mejores entrenamientos para armar una linda cola y piernas sexy",
-  15000
-);
+let precios = [{ precios: "3200" }];
 
-alert(libro1.libro + " " + libro1.precio);
-alert(libro2.libro + " " + libro2.precio);
-alert(libro3.libro + " " + libro3.precio);
-alert(libro4.libro + " " + libro4.precio);
+function cargarProducto() {
+  let dias = prompt(`Elige un día para entrenar:
+1:Lunes
+2:Martes
+3:Miercoles
+4:Jueves
+5:Viernes
+6:Sabado
+7:Domingo`);
 
-const produtos = [prompt("Ingresa que días queres entrenar")];
+  switch (dias) {
+    case "1":
+      alert("Lunes");
+      break;
 
-for (let i = 0; i < 7; i++) {
-  console.log();
+    case "2":
+      alert("Martes");
+      break;
+
+    case "3":
+      alert("Miercoles");
+      break;
+
+    case "4":
+      alert("Jueves");
+      break;
+
+    case "5":
+      alert("Viernes");
+      break;
+
+    case "6":
+      alert("Sabado");
+      break;
+
+    case "7":
+      alert("Domingo");
+      break;
+
+    default:
+      alert("Opción invalidad");
+
+      break;
+  }
+  alert("Valor por hora" + precios);
+  const nuevoProducto = new LetsWorkout(dias, precios);
+  arrayCarrito.push(nuevoProducto);
+  alert("Has añadido día de entrenamiento a tu carrito");
 }
+
+function descuentoExclusivo() {
+  alert(
+    "Ingresa la cantidad de días que deseas entrenar y participa por un descuento exclusivo"
+  );
+
+  let primerProducto = Number(
+    prompt("¿Cuantas veces por MES te gustaria entrenar de manera presencial?")
+  );
+  let segundoProducto = Number(
+    prompt("¿Cuantas clases por MES en linea te gustaria tomar?")
+  );
+  let suma = primerProducto + segundoProducto;
+
+  if (suma >= 1 && suma <= 11) {
+    alert("Descuento aplica para más cantidad de clases");
+  } else if (suma >= 12 && suma <= 26) {
+    alert("Tendras un 15% de descuento sobre el valor total de tus clases");
+  } else {
+    alert("Opción invalidad");
+  }
+  const nuevoDescuento = new descuentoExclusivo();
+  arrayCarrito.push(nuevoDescuento);
+  alert("Descuento" + descuentoExclusivo);
+}
+
+function reservaHoraria() {
+  class Agenda {
+    constructor(time, day, disponibility) {
+      this.time = time;
+      this.day = day;
+      this.propietario = disponibility;
+    }
+    estaDisponible(hora) {
+      if ((hora >= 8 && hora <= 12) || (hora >= 15 && hora <= 19)) {
+        return true;
+      }
+      return false;
+    }
+  }
+  const agenda1 = new Agenda(
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes",
+    "Sabado",
+    "Domingo"
+  );
+  for (let index = 0; index < 3; index++) {
+    let entrada = parseInt(
+      prompt(
+        "Ingresa un horario que te gustria entrenar con nosotros y te diremos si tenemos disponibilidad horaria. Horario Militar, ejemplo 16"
+      )
+    );
+    if (agenda1.estaDisponible(entrada)) {
+      alert("Este horario esta disponible " + entrada);
+    } else {
+      alert("Este horario no esta disponible " + entrada);
+    }
+  }
+  const nuevoHorario = new reservaHoraria();
+  arrayCarrito.push(nuevoHorario);
+  alert("Descuento" + reservaHoraria);
+}
+
+function verCarrito() {
+  arrayCarrito.forEach((producto) => {
+    alert(`Elegiste ${producto.dias} por un precio de ${producto.precios}`);
+  });
+}
+
+function mostrarOferta() {
+  alert("Te presentamos nuestro produtos");
+
+  const { libro, precio, disponible } = producto;
+
+  function producto(nombre, precio) {
+    (this.libro = nombre), (this.precio = precio), (this.disponible = true);
+  }
+
+  const libro1 = new producto("Abdomen de hierro", 8000);
+  const libro2 = new producto("Tren superior para la postura", 9000);
+  const libro3 = new producto(
+    "Mas de 100 entrenamientos para hacer desde casa",
+    10000
+  );
+  const libro4 = new producto(
+    "Los mejores entrenamientos para armar una linda cola y piernas sexy",
+    15000
+  );
+
+  alert(libro1.libro + " " + libro1.precio);
+  alert(libro2.libro + " " + libro2.precio);
+  alert(libro3.libro + " " + libro3.precio);
+  alert(libro4.libro + " " + libro4.precio);
+
+  const ofertas = precio.filter((libro) => libro.precio < 9000);
+  for (const oferta of ofertas) {
+    alert(
+      `la oferta de hoy es: ${oferta.libro} a un valor de ${oferta.precio}`
+    );
+  }
+}
+
+function finalizarCompra() {
+  const total = arrayCarrito.reduce((acc, el) => acc + el.precio, 0);
+  alert(`gracias por su compra el total a pagar es de ${total}`);
+}
+
+let arrayCarrito = [];
+
+let opcion = prompt(
+  "Bienvenido a Yes Fitness \n 1: Elegir día de entrenamiento \n 2: Mostrar ofertas \n 3: Participar de descuentos exclusivos \n 4: Ver disponibilidad horaria \n 5: Ver carrito \n 6: Finalizar compra \n 7: Salir"
+);
+
+while (opcion !== "7") {
+  if (opcion === "1") {
+    cargarProducto(arrayCarrito);
+  }
+  if (opcion === "2") {
+    mostrarOferta();
+  }
+  if (opcion === "3") {
+    descuentoExclusivo();
+  }
+  if (opcion === "4") {
+    reservaHoraria();
+  }
+  if (opcion === "5") {
+    verCarrito();
+  }
+  if (opcion === "6") {
+    finalizarCompra();
+  }
+  opcion = prompt(
+    "Bienvenido a Yes Fitness \n 1: Elegir otro día de entrenamiento \n 2: Mostrar ofertas \n 3: Participar de descuentos exclusivos \n 4: Ver disponibilidad horaria \n 5: Ver carrito \n 6: Finalizar compra \n 7: Salir"
+  );
+}
+alert("gracias por tu compra!");

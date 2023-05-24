@@ -207,7 +207,7 @@ function mostrarOferta() {
     10000
   );
   const libro4 = new Producto(
-    "Los mejores entrenamientos para armar una linda cola y piernas sexy",
+    "Los mejor para armar una linda cola y piernas sexy",
     15000
   );
 
@@ -220,9 +220,47 @@ function mostrarOferta() {
     (libro) => libro.precio < 9000
   );
   for (const oferta of ofertas) {
-    alert(
-      `La oferta de hoy es: ${oferta.libro} a un valor de ${oferta.precio}`
+    alert(`LA OFERTA DE HOY ES: ${oferta.libro} A UN VALOR ${oferta.precio}`);
+  }
+
+  let libro = prompt(`Elige alguno de nuestros productos
+  1: Abdomen de hierro
+  2: Tren superior para la postura
+  3: Más de 100 entrenamientos para hacer desde casa
+  4: Lo mejor para armar una linda cola y piernas sexy
+  5: Ninguno
+  `);
+
+  const libroEntrenamientos = [
+    "Abdomen de hierro",
+    libro1.precio,
+    "Tren superior para la postura",
+    libro2.precio,
+    "Más de 100 entrenamientos para hacer desde casa",
+    libro3.precio,
+    "Lo mejor para armar una linda cola y piernas sexy",
+    libro4.precio,
+    "Ninguno",
+  ];
+
+  class LibroReady {
+    constructor(libro, precio) {
+      this.libro = libro;
+      this.precio = precio;
+    }
+  }
+
+  if (libro >= 1 && libro <= 7) {
+    alert(libroEntrenamientos[libro - 1]);
+    alert("Valor por hora: " + precio[0].precio);
+    const nuevoProducto = new LibroReady(
+      libroEntrenamientos[libro - 1],
+      precio
     );
+    arrayCarrito.push(nuevoProducto);
+    alert("Has añadido un nuevo producto a tu carrito");
+  } else {
+    alert("Opción inválida");
   }
 }
 

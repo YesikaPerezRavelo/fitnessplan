@@ -2,7 +2,6 @@
 
 ---
 
-**Intro**
 Didactic interface using **JavaScript** to provide an interactive and educational experience. The interface is designed to simplify complex tasks or concepts through dynamic functionality, helping users engage and learn more effectively. It focuses on usability and clear interactions, making it a valuable tool for teaching and understanding key concepts.
 
 ---

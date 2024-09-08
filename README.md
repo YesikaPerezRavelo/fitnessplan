@@ -1,10 +1,9 @@
-# Fitness Plan
+# Javascript
 
-## Javascrip
+---
 
-### Portfolio
-
-#### Website to sell fitness plan
+**Intro**
+Didactic interface using **JavaScript** to provide an interactive and educational experience. The interface is designed to simplify complex tasks or concepts through dynamic functionality, helping users engage and learn more effectively. It focuses on usability and clear interactions, making it a valuable tool for teaching and understanding key concepts.
 
 ---
 
@@ -28,10 +27,12 @@ function dataIMC() {
 2. Log In
 3. Select our fitness plan
 
+---
+
 | Name   | Last Name | Email              |
 | ------ | --------- | ------------------ |
 | Yesika | Perez     | yesikapr@gmail.com |
 
 [LinkedIn](https://www.linkedin.com/in/yesikaperezravelo/)
 
-![imagenPerfil](./yes.webp)
+![imagenPerfil](https://firebasestorage.googleapis.com/v0/b/productyesfitness.appspot.com/o/fitnessProducts.png?alt=media&token=673220bd-90ca-46d0-bb5e-fc13a54f5ac7)
